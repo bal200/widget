@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
-import CompList from '../components/CompList.vue'
-import Comp from '../components/Comp.vue'
+import CompList from '../views/CompList.vue'
+import Comp from '../views/Comp.vue'
 
 Vue.use(VueRouter)
 
@@ -10,7 +10,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: CompList
   },
   {
     path: '/complist',

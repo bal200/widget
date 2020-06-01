@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/complist">CompList</router-link>
-    </div>
+    </div> -->
     <div class="view-container">
       <transition name="slide-left">
         <router-view class="child-view"/>
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import CompList from "./components/CompList.vue";
+import CompList from "./views/CompList.vue";
 
 @Component({
   components: {
@@ -66,6 +66,7 @@ export default class App extends Vue {
 	overflow: hidden;
 	//border: 1px solid greenyellow;
   //transition: height 1s ease;
+  height: 1020px;
 }
 .child-view {
 	// position: absolute;

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1>Competition</h1>
-		<div class="comp-list">
+		<!-- <div class="comp-list"> -->
 			<div v-if="loaded" class="card">
 				<img v-if="comp.image" class="card-img" :src="comp.image" alt="image">
         <div class="darken"></div>
@@ -10,7 +10,7 @@
 					<p class="card-text">{{comp.description}}</p>
 				</div>
 			</div>
-		</div>
+		<!-- </div> -->
 	</div>
 </template>
 
@@ -20,23 +20,23 @@ import Service, {Competition} from "../services/service"
 @Component
 export default class Comp extends Vue {
 	// props
-  //@Prop() private msg!: string;
+	//@Prop() private msg!: string;
   
-  /* $route.params.id = comp Id */
+	/* $route.params.id = comp Id */
 	
 	// data
-  comp?: Competition;
-  loaded = false;
+	comp?: Competition;
+	loaded = false;
 
 	mounted() {
-    if (!this.comp) {
-      Service.getCompetition( this.$route.params.id )
-        .then(result => {
-          this.comp = result;
-          this.loaded = true;
-        });
-    }
-  }
+		if (!this.comp) {
+			Service.getCompetition( this.$route.params.id )
+			.then(result => {
+				this.comp = result;
+				this.loaded = true;
+			});
+		}
+	}
   
 	openComp(comp:Competition) {
 		console.log("click "+comp.title);
@@ -53,7 +53,7 @@ export default class Comp extends Vue {
 // @import "~bootstrap/scss/mixins/_hover";
 // @import "~bootstrap/scss/_card";
 h1 {
-  margin: 0;
+	margin: 0;
 }
 .comp-list {
 	display: flex;
@@ -89,12 +89,12 @@ h1 {
 	}
 }
 .darken {
-  position: absolute;
-  right: 0; bottom: 0;
-  background: #0004;
+	position: absolute;
+	right: 0; bottom: 0;
+	background: #0004;
 }
 .white-text {
-  color: white;
+	color: white;
 }
 .pointer {
 	cursor: pointer;
