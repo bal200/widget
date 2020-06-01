@@ -6,7 +6,7 @@ import router from './router'
 
 var elId = 'app'
 var el = document.getElementById(elId)
-var d = el ? el.getAttribute("vendor") : ''
+var d = el ? el.getAttribute("data-vendor") : ''
 
 new Vue({
   router,
