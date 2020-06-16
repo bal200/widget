@@ -1,16 +1,15 @@
 <template>
 	<div>
 		<h1>Competition</h1>
-		<!-- <div class="comp-list"> -->
 			<div v-if="loaded" class="card">
 				<img v-if="comp.image" class="card-img" :src="comp.image" alt="image">
-        <div class="darken"></div>
+      		<div class="darken"></div>
 				<div class="card-img-overlay white-text pointer" @click="openComp(comp)">
 					<h4 class="card-title">{{comp.title}}</h4>
 					<p class="card-text">{{comp.description}}</p>
 				</div>
 			</div>
-		<!-- </div> -->
+			<router-link :to="'/enter/'+$route.params.id">another page</router-link>
 	</div>
 </template>
 

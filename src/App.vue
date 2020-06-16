@@ -3,9 +3,9 @@
     <!-- <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/complist">CompList</router-link>
-    </div> -->
+    </div>-->
     <div class="view-container">
-      <transition name="slide-left">
+      <transition :name="transitionName">
         <router-view class="child-view"/>
       </transition>
     </div>
@@ -14,20 +14,31 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import CompList from "./views/CompList.vue";
 
 @Component({
-  components: {
-    CompList
-  }
+	components: {},
+	beforeRouteEnter(to, from, next) {
+		console.log("beforeRouteEnter!");
+	},
+	beforeRouteUpdate(to, from, next) {
+    //const toDepth = to.path.split("/").length;
+		//const fromDepth = from.path.split("/").length;
+		console.log("beforeRouteUpdate!");
+    //this.transitionName = toDepth < fromDepth ? "slide-right" : "slide-left";
+    next();
+	}
 })
 export default class App extends Vue {
   // props
   @Prop() private vendor!: string;
 
+	transitionName: string ='slide-left';
+
   mounted() {
     console.log("vendor ", this.vendor);
   }
+	
+	
 }
 </script>
 
@@ -60,33 +71,45 @@ export default class App extends Vue {
   }
 }
 
-
 .view-container {
-	position: relative;
-	overflow: hidden;
-	//border: 1px solid greenyellow;
+  position: relative;
+  overflow: hidden;
+  //border: 1px solid greenyellow;
   //transition: height 1s ease;
   height: 1020px;
 }
 .child-view {
-	// position: absolute;
-	transition: all 0.3s ease;
+  // position: absolute;
+  transition: all 0.3s ease;
 }
 
 .slide-left-enter {
-	transform: translate(100%, 0);
+  transform: translate(100%, 0);
 }
 .slide-left-enter-active {
-	position: absolute;
-	top: 0;
-	width: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .slide-left-leave {
 }
 .slide-left-leave-active {
-	transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
 }
 
+.slide-right-enter {
+  transform: translate(-100%, 0);
+}
+.slide-right-enter-active {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.slide-right-leave {
+}
+.slide-right-leave-active {
+  transform: translate(100%, 0);
+}
 
 // .slide-left-enter,
 // .slide-right-leave-active {
